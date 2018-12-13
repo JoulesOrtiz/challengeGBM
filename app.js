@@ -12,7 +12,7 @@
         'LocalStorageModule',
         'AngularChart'
     ])
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
 
         $routeProvider
             .when('/login', {
@@ -27,6 +27,7 @@
             })
      
             .otherwise({ redirectTo: '/login' });
+            $locationProvider.hashPrefix('');
     }])
      
     .run(['$rootScope', '$location', 'localStorageService', '$http',
